@@ -1,0 +1,6 @@
+cython
+pybind11
+typing-extensions
+onnx
+onnxruntime
+xgboost
