@@ -8,7 +8,6 @@ import os.path
 
 import inferlib.ops as ops
 import inferlib.ops.classify as classify
-import inferlib.ops.imaging as imaging
 import inferlib.ops.utils as utils
 import tvmops.tvm as tvm_ops
 
