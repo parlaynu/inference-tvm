@@ -22,14 +22,14 @@ def build_pipeline(module, dataspec, rate, limit):
     
     print(f"input spec: {shapes['image']} {input_dtype}")
 
-    pipe = ops.datasource(dataspec, silent=True)
+    pipe = ops.datasource(dataspec, resize=(width, height), silent=True)
 
     if rate > 0:
         pipe = utils.rate_limiter(pipe, rate=rate)
     if limit > 0:
         pipe = utils.limiter(pipe, limit=limit)
 
-    pipe = imaging.resize(pipe, width=width, height=height)
+    # pipe = imaging.resize(pipe, width=width, height=height)
     pipe = classify.preprocess(pipe)
     pipe = utils.worker(pipe)
     
