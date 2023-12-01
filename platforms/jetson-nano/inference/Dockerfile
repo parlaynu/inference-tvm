@@ -34,6 +34,9 @@ RUN git clone https://github.com/parlaynu/inference-onnx.git && \
 
 COPY local/inference /workspace/inference/
 
+RUN sed -i 's/env python3/env python3.8/g' /workspace/inference/classify-onnx.py
+
+
 ENTRYPOINT ["/bin/sh", "-c", "exec \"$0\" \"$@\""]
 CMD ["/bin/bash"]
 
